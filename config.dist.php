@@ -1,5 +1,8 @@
 <?php
 
+	//url racine
+	//define("ROOTURL", "");
+
 	//connexion à la base de données
 	//define("DBHOST", "");
 	//define("DBUSER", "");
