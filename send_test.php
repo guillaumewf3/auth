@@ -23,7 +23,7 @@
 	$mail->CharSet = 'UTF-8';
 
 	//debug
-	$mail->SMTPDebug = 2;	//0 pour désactiver les infos de débug
+	$mail->SMTPDebug = 0;	//0 pour désactiver les infos de débug
 	$mail->Debugoutput = 'html';
 
 	//config du serveur smtp
@@ -35,19 +35,22 @@
 	$mail->Password = SMTPPASS;
 
 	//qui envoie, et qui reçoit
-	$mail->setFrom('accounts@auth.com', 'Test');
-	$mail->addAddress('guillaumewf3@gmail.com', 'Guillaume Sylvestre');
+	$mail->setFrom('accounts@wf3-auth.com', 'WF3 Auth');
+	$mail->addAddress('guillaumewf3@gmail.com', 'Guillaume Sylvestre'); //retirer en prod
+	$mail->addAddress($email, $username);
 
 	//mail au format HTML
 	$mail->isHTML(true); 
 
 	//sujet 
-	$mail->Subject = 'Envoyé par PHP !';
+	$mail->Subject = 'Oubli du mot de passe chez WF3 ?';
 
 	//message (avec balises possibles)
 	$mail->Body = 
-	'<a href="http://localhost/php/j13/auth/change_password.php">
-	Cliquez ici pour créer un nouveau mot de passe</a>';
+	'<p>Vous avez oublié votre mot de passe ?<br />
+	<a href="http://localhost/php/j13/auth/forgot_password_2.php?token='.$randomString.'">
+	Cliquez ici pour créer un nouveau mot de passe</a></p>
+	<p>Si vous n\'êtes pas à l\'origine de cette demande, vous pouvez ignorer ce message</p>';
 
 	//pièce jointe
 	//$mail->addAttachment('panda.gif');

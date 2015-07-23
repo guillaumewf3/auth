@@ -1,6 +1,4 @@
 <?php 
-	session_start();
-
 	include("config.php");
 	include("db.php");
 	include("functions.php");
@@ -8,7 +6,11 @@
 	//si le form est soumis...
 	if (!empty($_POST)){
 
-		//validation rapide et sécurisation de l'email
+		$error = "";
+
+		//sécurisation de l'email
+
+		//validation rapide
 
 		//si valide
 
