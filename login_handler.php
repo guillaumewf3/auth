@@ -1,5 +1,11 @@
 <?php
-	
+
+	//on empêche l'accès à ce fichier s'il n'y a pas de données POST
+	if (empty($_POST)){
+		header("Location: login.php");
+		die();
+	}
+
 	session_start();
 	include("config.php");
 	include("vendor/autoload.php");
